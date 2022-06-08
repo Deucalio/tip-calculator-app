@@ -24,11 +24,15 @@ h1{
     letter-spacing: 6px;
     color: hsl(183, 100%, 15%);
 }
+h3{
+    color: hsl(183, 100%, 15%);
+}
+
 .box{
     margin: 0 auto;
     margin-top: 45px;
     width: 60%;
-    height: 370px;
+    height: 430px;
     /* border: 3px solid red; */
     background-color: aliceblue;
     border-radius: 30px;
@@ -40,21 +44,92 @@ h1{
 
 .left{
     border: 3px solid rebeccapurple;
-    flex: 0 0 445px;
-}
-/* elements inside .left box */
-h3{
-    color: hsl(183, 100%, 15%);
-}
-input{
-    color: aliceblue;
-}
-.bill-div{
-    border: 2px solid red;
+    /* flex: 0 0 445px; */
+    width: 50%;
 }
 
+/* all elements inside .left box */
+
+.left-i{
+    margin-left: 30px;
+}
+
+.tip-percentages{
+    /* border: 2px solid red; */
+    width: 93%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.button{
+    width: 120px;
+    height: 50px; 
+    font-size: 1.3rem;
+    background-color: hsl(183, 100%, 15%);
+    color: aliceblue;
+    border: none;
+    border-radius: 10px;
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+.button6{
+    background-image: linear-gradient(to left bottom, #b6c1d0, #c3c8d4, #ced0d8, #d8d8dd, #e1e1e1);
+    cursor:text;
+    text-align: center;
+    color:hsl(183, 100%, 15%);
+}
+.button6::placeholder{
+    text-align: center;
+    color:hsl(183, 100%, 15%);
+}
+
+
+.bill-div{
+    display: flex;
+    /* margin-top: 10px; */
+    /* border: 2px solid red; */
+    width: 85%;
+    height: 40px;
+    /* padding: 10px 0; */
+    background-image: linear-gradient(to left bottom, #b6c1d0, #c3c8d4, #ced0d8, #d8d8dd, #e1e1e1);
+  }
+
+.bill-input{
+    height: 15px;
+    border: none;
+    width: 99%;
+  /*   border: 2px solid black; */
+    text-align: right;
+    background-image: linear-gradient(to left bottom, #b6c1d0, #c3c8d4, #ced0d8, #d8d8dd, #e1e1e1);
+    /* padding-top: 20px; */
+    font-size: 1.6rem;
+    color: hsl(183, 100%, 15%);
+    font-weight: bold;
+    margin-top: 8px;
+    padding-top: 5px;
+    margin-left: 50px;
+    
+}
+
+
+input:focus, textarea{
+    outline: none ! important;
+}
+
+.icon{
+    height: 30px;
+}
+.icon-1{
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+
+/*  */
 .right{
     border: 3px solid aqua;
-    flex: 0 0 445px;
+    /* flex: 0 0 445px; */
+    width: 50%;
 }
 
