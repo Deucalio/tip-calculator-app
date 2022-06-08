@@ -11,7 +11,7 @@ body{
     padding: 0;
     font-family: "Space Mono";
     box-sizing: border-box;
-    background-color:  hsl(185, 41%, 84%)
+    background-color:  hsl(185, 41%, 84%);
 }
 
 h1{ 
@@ -43,7 +43,7 @@ h3{
 }
 
 .left{
-    border: 3px solid rebeccapurple;
+    /* border: 3px solid rebeccapurple; */
     /* flex: 0 0 445px; */
     width: 50%;
 }
@@ -82,6 +82,9 @@ h3{
 .button6::placeholder{
     text-align: center;
     color:hsl(183, 100%, 15%);
+}
+.selected-button{
+    background-color: hsl(172, 67%, 45%);
 }
 
 
@@ -126,10 +129,45 @@ input:focus, textarea{
 }
 
 
-/*  */
 .right{
-    border: 3px solid aqua;
+    /* border: 3px solid aqua; */
     /* flex: 0 0 445px; */
     width: 50%;
+}
+/* all elements inside .left box */
+.right-box{
+    padding: 0px 30px;
+    width: 80%;
+    height: 90%;
+    border: 3px solid hsl(183, 100%, 15%);
+    margin:0 auto;
+    border-radius: 20px;
+    margin-top: 20px;
+    background-color: hsl(183, 100%, 15%);
+    
+}
+.right-box-items{
+    display: flex;
+    justify-content: space-between;
+}
+h3.right-i{
+    /* display: inline-block; */
+    color: hsl(185, 41%, 84%);
+    position: relative;
+    width: 40%;
+}
+
+h3.right-i::after{
+    content: "/ person";
+    position: absolute;
+    top: 30px;
+    left: 0;
+    color:hsl(184, 14%, 56%);
+    font-size: 1rem;
+}
+p.tip-amount{
+    margin-top: 10px;
+    font-size: 2.7rem;
+    color:  hsl(172, 67%, 45%);
 }
 
