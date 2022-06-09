@@ -1,22 +1,26 @@
 let arr = []
 let Tip = []
 $(".button").click(function () {
-    Tip.shift()
+    // Tip.shift()
 
     //selecting second class of button (button1,button2...)
     let buttonN = (this.className.substr(7));
     arr.push(buttonN)
     if (arr.length === 1) { //if there's only 1 button 
         $(`.${buttonN}`).addClass("selected-button")
+        Tip.shift()
+        Tip.push(arr[0])
     } else {
         //if there are 2 buttons inside an array,remove first
         // and assign the selected button class to second one
         $(`.${arr[0]}`).removeClass("selected-button")
         $(`.${arr[1]}`).addClass("selected-button")
         arr.shift();
+
+        Tip.shift()
+        Tip.push(arr[0])
     }
-    Tip.shift()
-    Tip.push(arr[0])
+    
 })
 
 
@@ -44,12 +48,13 @@ $('.submit-button').click(function () {
         alert("Can't be empty", tip)
     }else if (Tip.length <= 0){
         alert("Select Tip, please")
+    }else if (Tip[0].includes("selected-button")){
+        alert("Select Tip, again")
     }
     else if ((bill >= 0 && numberOfPeople >=0) && Tip.length > 0){
         alert("lets gooo")
     }
-    Tip.shift()
-    // console.log(Tip);
+    console.log(Tip);
 })
 
 const removeClass = () => {
