@@ -108,7 +108,6 @@ h3{
     /* padding-top: 20px; */
     font-size: 1.6rem;
     color: hsl(183, 100%, 15%);
-    font-weight: bold;
     margin-top: 8px;
     padding-top: 5px;
     margin-left: 50px;
@@ -165,9 +164,38 @@ h3.right-i::after{
     color:hsl(184, 14%, 56%);
     font-size: 1rem;
 }
-p.tip-amount{
+p.tip-amount, p.person{
     margin-top: 10px;
     font-size: 2.7rem;
     color:  hsl(172, 67%, 45%);
 }
 
+.submit-button{
+    margin: 75px auto;
+    margin-left: 25px;
+    width: 85%;
+    padding: 13px 0;
+    text-transform: uppercase;
+    color: hsl(183, 100%, 15%);
+    font-size: 1.3rem;
+    background-color: hsl(185, 41%, 84%);
+}
+.submit-button:hover{
+    background-color: rgb(26, 211, 186);
+    cursor: pointer;
+}
+
+.bill, .number-of-ppl{
+    position: relative
+}
+.number-of-ppl::after, .bill::after{
+    position: absolute;
+    right: 34px;
+    font-size: 1rem;
+    color: rgb(241, 20, 20);
+    font-weight: bold;
+    top: 15px;
+}
+.special::after{
+    content: "Can't be 0";
+}
