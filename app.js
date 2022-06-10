@@ -1,15 +1,21 @@
 let arr = []
 let Tip = []
+let arrVal = []
 $(".button").click(function () {
     // Tip.shift()
 
     //selecting second class of button (button1,button2...)
     let buttonN = (this.className.substr(7));
+    let buttonNValue = parseInt(this.innerHTML)
+
     arr.push(buttonN)
     if (arr.length === 1) { //if there's only 1 button 
         $(`.${buttonN}`).addClass("selected-button")
         Tip.shift()
         Tip.push(arr[0])
+        
+        arrVal.shift()
+        arrVal.push(buttonNValue);
     } else {
         //if there are 2 buttons inside an array,remove first
         // and assign the selected button class to second one
@@ -19,18 +25,17 @@ $(".button").click(function () {
 
         Tip.shift()
         Tip.push(arr[0])
+        
+        arrVal.shift()
+        arrVal.push(buttonNValue);
     }
     
 })
 
-
-// let bill = parseInt($('#bill')[0].value)
-// let tip = parseInt(arr[0])
-// let numberOfPeople = parseInt($('#total_person')[0].value)
-
 $('.submit-button').click(function () {
-    let bill = parseInt($('#bill')[0].value)
-    let tip = Tip
+    let ButtonNVal = parseInt(this.innerHTML)
+    let bill = parseFloat($('#bill')[0].value)
+    let tip = Tip[0]
     let numberOfPeople = parseInt($('#total_person')[0].value)
     if ( (bill <= 0) && (numberOfPeople <= 0) ) {
         // $('.bill').addClass('special-bill');
@@ -50,11 +55,26 @@ $('.submit-button').click(function () {
         alert("Select Tip, please")
     }else if (Tip[0].includes("selected-button")){
         alert("Select Tip, again")
+    }else if(Tip[0].includes("6")){
+        var customBtnVal = parseInt($('.button6')[0].value)
+        arrVal.shift()
+        arrVal.push(customBtnVal)
+
+        let result = calculate(bill,arrVal[0],numberOfPeople);
+        $('.tip-amount')[0].innerHTML = `$${result[0]}`
+        $('.person')[0].innerHTML = `$${result[1]}`
     }
     else if ((bill >= 0 && numberOfPeople >=0) && Tip.length > 0){
-        alert("lets gooo")
+        console.log(bill,arrVal[0],numberOfPeople);
+        let result = calculate(bill,arrVal[0],numberOfPeople);
+        $('.tip-amount')[0].innerHTML = `$${result[0]}`
+        $('.person')[0].innerHTML = `$${result[1]}`
     }
-    console.log(Tip);
+    else if (isNaN(Tip[0])){
+        alert("select TIP")
+    }
+    
+    
 })
 
 const removeClass = () => {
@@ -66,3 +86,14 @@ const removeClass = () => {
 const addClass = (css_class) => {  //adds special class
    css_class.addClass('special')
 }
+
+//function to calculate Tip Amount and Person
+
+const calculate = (bill,tip,numberOfPpl) => {
+    let tipAmount = threePlaces(((bill/numberOfPpl) * (tip/100)))
+    let total = threePlaces(tipAmount + (bill/numberOfPpl) + (tip/100))
+    return([tipAmount,total])
+}
+
+//returns a digit truncated to 3 decimal places
+const threePlaces = (digit) => parseFloat(digit.toString().split("").slice(0,4).join(""))
